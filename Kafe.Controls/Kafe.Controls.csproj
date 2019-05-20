@@ -5,10 +5,10 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A0CBC3C3-35EF-4851-A115-91B68CA71D55}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
-    <RootNamespace>Kafe</RootNamespace>
-    <AssemblyName>Kafe</AssemblyName>
+    <ProjectGuid>{9C2EE5D3-199A-4FB0-BA29-F9764FB60556}</ProjectGuid>
+    <OutputType>library</OutputType>
+    <RootNamespace>Kafe.Controls</RootNamespace>
+    <AssemblyName>Kafe.Controls</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -18,7 +18,6 @@
     </NuGetPackageImportStamp>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -29,7 +28,6 @@
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -39,20 +37,20 @@
     <LangVersion>7.2</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Ninject, Version=3.3.4.0, Culture=neutral, PublicKeyToken=c7192dc5380945e7, processorArchitecture=MSIL">
-      <HintPath>..\packages\Ninject.3.3.4\lib\net45\Ninject.dll</HintPath>
-    </Reference>
     <Reference Include="PropertyChanged, Version=2.6.1.0, Culture=neutral, PublicKeyToken=ee3ee20bcf148ddd, processorArchitecture=MSIL">
       <HintPath>..\packages\PropertyChanged.Fody.2.6.1\lib\netstandard1.0\PropertyChanged.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.IO.Compression" />
     <Reference Include="System.Numerics" />
     <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
     </Reference>
+    <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Core" />
@@ -67,62 +65,20 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </ApplicationDefinition>
-    <Compile Include="Convertor\ConvertBooleanToVisibility.cs" />
-    <Compile Include="Convertor\ConvertNumberToCurrency.cs" />
-    <Compile Include="Convertor\ConvertNumberToPercent.cs" />
-    <Compile Include="Convertor\ConvertToApplicationPage.cs" />
-    <Compile Include="Pages\Menu.xaml.cs">
-      <DependentUpon>Menu.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ProductCustom.xaml.cs">
-      <DependentUpon>ProductCustom.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\ProductTemplated.xaml.cs">
-      <DependentUpon>ProductTemplated.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="UserControls\Sales.xaml.cs">
-      <DependentUpon>Sales.xaml</DependentUpon>
-    </Compile>
-    <Compile Include="ViewModul\ShareApplication.cs" />
-    <Compile Include="ViewModul\WindowViewModul.cs" />
-    <Page Include="MainWindow.xaml">
-      <Generator>MSBuild:Compile</Generator>
-      <SubType>Designer</SubType>
-    </Page>
-    <Compile Include="App.xaml.cs">
-      <DependentUpon>App.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Compile Include="MainWindow.xaml.cs">
-      <DependentUpon>MainWindow.xaml</DependentUpon>
-      <SubType>Code</SubType>
-    </Compile>
-    <Page Include="Pages\Menu.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="Style\font.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\ProductCustom.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\ProductTemplated.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-    <Page Include="UserControls\Sales.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
-  </ItemGroup>
-  <ItemGroup>
+    <Compile Include="Animation\AnimationInvoke.cs" />
+    <Compile Include="Animation\SlideAninmation.cs" />
+    <Compile Include="Animation\Animation.cs" />
+    <Compile Include="AttachProperties\AnimationSlider.cs" />
+    <Compile Include="AttachProperties\BaseAttachProperty.cs" />
+    <Compile Include="AttachProperties\PasswordAttach.cs" />
+    <Compile Include="Convertor\BaseValueConertor.cs" />
+    <Compile Include="Convertor\ConvertBooleanToAnimationOFFAndON.cs" />
+    <Compile Include="Convertor\ConvertNumberToBoolean.cs" />
+    <Compile Include="Factory\ApplicationPage.cs" />
+    <Compile Include="Factory\BaseViewModul.cs" />
+    <Compile Include="Factory\NumberOnlyAttribute.cs" />
+    <Compile Include="Factory\RelayCommand.cs" />
+    <Compile Include="Factory\ValidateField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -136,38 +92,34 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <Compile Include="SButton.cs" />
+    <Compile Include="UserControls\TextBoxDesign.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <WCFMetadata Include="Connected Services\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Kafe.Controls\Kafe.Controls.csproj">
-      <Project>{9c2ee5d3-199a-4fb0-ba29-f9764fb60556}</Project>
-      <Name>Kafe.Controls</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kafe.Core.Color\Kafe.Core.Color.csproj">
-      <Project>{653cf20e-d119-4e1c-b7a9-60aa72c9daa1}</Project>
-      <Name>Kafe.Core.Color</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Kafe.CoreSystem\Kafe.CoreSystem.csproj">
-      <Project>{1338f2b3-e587-44ec-9c59-c01f9f2df871}</Project>
-      <Name>Kafe.CoreSystem</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Image\espressoo.jpg" />
-    <Resource Include="Image\myGirl.jpg" />
+    <Page Include="Themes\button.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\text.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />

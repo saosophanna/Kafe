@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+    <SolidColorBrush x:Key="extraWhite">#FFFFFF</SolidColorBrush>
+    <SolidColorBrush x:Key="extraBlack">#000000</SolidColorBrush>
+    <SolidColorBrush x:Key="softWhite">#f4f2f2</SolidColorBrush>
+    <SolidColorBrush x:Key="extraRed">#ff0010</SolidColorBrush>
+    <SolidColorBrush x:Key="softBlueSky">#57BBFB</SolidColorBrush>
+    <SolidColorBrush x:Key="deepBlueSky">#1181FF</SolidColorBrush>
+    
+    <!--RGB-->
+    <Color x:Key="extraWhiteRGB" A="255" R="255" G="255" B="255"/>
+    <Color x:Key="softWhiteRGB" A="255" R="244" G="242" B="242"/>
+    <Color x:Key="blueSkyRGB" A="255" R="25" G="166" B="255"/>
+    <Color x:Key="redRGB" A="255" R="255" G="0" B="0"/>
+</ResourceDictionary>

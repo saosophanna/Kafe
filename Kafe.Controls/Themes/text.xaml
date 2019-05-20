@@ -1,0 +1,308 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:Kafe.Controls">
+    
+    <Style TargetType="{x:Type PasswordBox}" x:Key="basePasswordStyle">
+        <Setter Property="local:PasswordAttach.HasPassword" Value="True"/>
+        <Setter Property="BorderBrush" Value="Blue"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type PasswordBox}">
+                    <Grid>
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            SnapsToDevicePixels="False"/>
+                        <TextBlock
+                            x:Name="text"
+                            Text="{TemplateBinding Tag}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            IsHitTestVisible="False">
+                        </TextBlock>
+                        <Border
+                            x:Name="border"
+                            BorderThickness="0 0 0 2"
+                            VerticalAlignment="Bottom"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            RenderTransformOrigin=".5 .5">
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="borderScaleX" ScaleX="0"/>
+                            </Border.RenderTransform>
+                        </Border>
+                        <Border
+                            VerticalAlignment="Bottom"
+                            BorderThickness="0 0 0 .6"
+                            BorderBrush="{TemplateBinding BorderBrush}"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="local:PasswordAttach.HasPassword" Value="false">
+                            <Setter Property="Visibility" TargetName="text" Value="Visible"/>
+                        </Trigger>
+                        <Trigger Property="local:PasswordAttach.HasPassword" Value="true">
+                            <Setter Property="Visibility" TargetName="text" Value="Collapsed"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <Style TargetType="{x:Type TextBox}" x:Key="baseTextboxStyle">
+        <Setter Property="BorderBrush" Value="Blue"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type TextBox}">
+                    <Grid
+                        ToolTip="{TemplateBinding ToolTip}"
+                        Background="{TemplateBinding Background}">
+                        <Grid.RowDefinitions>
+                            <RowDefinition/>
+                            <RowDefinition Height="auto"/>
+                        </Grid.RowDefinitions>
+                        <ScrollViewer
+                            x:Name="PART_ContentHost"
+                            SnapsToDevicePixels="False"/>
+                        <TextBlock
+                            x:Name="text"
+                            Text="{TemplateBinding Tag}"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            FontSize="{TemplateBinding FontSize}"
+                            FontFamily="{TemplateBinding FontFamily}"
+                            IsHitTestVisible="False">
+                            <TextBlock.Style>
+                                <Style TargetType="{x:Type TextBlock}">
+                                    <Setter Property="Visibility" Value="Collapsed"/>
+                                    <Style.Triggers>
+                                        <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text}" Value="">
+                                            <Setter Property="Visibility" Value="Visible"/>
+                                        </DataTrigger>
+                                    </Style.Triggers>
+                                </Style>
+                            </TextBlock.Style>
+                        </TextBlock>
+                        <Border
+                            x:Name="border"
+                            BorderThickness="0 0 0 2"
+                            VerticalAlignment="Bottom"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            RenderTransformOrigin=".5 .5">
+                            <Border.RenderTransform>
+                                <ScaleTransform x:Name="borderScaleX" ScaleX="0"/>
+                            </Border.RenderTransform>
+                        </Border>
+                        <Border
+                            VerticalAlignment="Bottom"
+                            BorderThickness="0 0 0 .6"
+                            BorderBrush="{TemplateBinding BorderBrush}"/>
+                        <!--Error Site-->
+                        <ItemsControl
+                            Grid.Row="1"
+                            ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(Validation.Errors)}">
+                            <ItemsControl.ItemTemplate>
+                                <DataTemplate>
+                                    <StackPanel
+                                        HorizontalAlignment="Right">
+                                        <TextBlock
+                                            HorizontalAlignment="Right"
+                                            FontSize="14"
+                                            Text="{Binding ErrorContent}"
+                                            FontFamily="{StaticResource fontLatoRegular}"
+                                            Foreground="{StaticResource extraRed}"/>
+                                    </StackPanel>
+                                </DataTemplate>
+                            </ItemsControl.ItemTemplate>
+                        </ItemsControl>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource extraRed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+
+
+    <Style TargetType="{x:Type local:TextBoxDesign}">
+        <Setter Property="HorizontalContentAlignment" Value="Center"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="BorderBrush" Value="Blue"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type local:TextBoxDesign}">
+                    <Border
+                        Background="{TemplateBinding Background}">
+                        <Grid>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width=".3*"/>
+                                <ColumnDefinition Width="*"/>
+                            </Grid.ColumnDefinitions>
+                            <!--Label-->
+                            <TextBlock
+                                Text="{TemplateBinding Label}"
+                                FontFamily="{TemplateBinding FontFamily}"
+                                FontSize="{TemplateBinding FontSize}"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                IsHitTestVisible="False"
+                                FontWeight="{TemplateBinding FontWeight}"/>
+                            <Grid
+                                Grid.Column="1">
+                                <Grid
+                                    ToolTip="{TemplateBinding ToolTip}"
+                                    Background="{TemplateBinding Background}">
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition/>
+                                        <RowDefinition Height="18"/>
+                                    </Grid.RowDefinitions>
+                                    <ScrollViewer
+                                          x:Name="PART_ContentHost"
+                                          SnapsToDevicePixels="False"/>
+                                    <TextBlock
+                                        Focusable="False"
+                                          x:Name="text"
+                                          Text="{TemplateBinding Comment}"
+                                          HorizontalAlignment="Center"
+                                          VerticalAlignment="Center"
+                                          FontSize="{TemplateBinding FontSize}"
+                                          FontFamily="{TemplateBinding FontFamily}"
+                                          IsHitTestVisible="False">
+                                        <TextBlock.Style>
+                                            <Style TargetType="{x:Type TextBlock}">
+                                                <Setter Property="Visibility" Value="Collapsed"/>
+                                                <Style.Triggers>
+                                                    <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=Text}" Value="">
+                                                        <Setter Property="Visibility" Value="Visible"/>
+                                                    </DataTrigger>
+                                                </Style.Triggers>
+                                            </Style>
+                                        </TextBlock.Style>
+                                    </TextBlock>
+                                    <Border
+                                          x:Name="border"
+                                          BorderThickness="0 0 0 2"
+                                          VerticalAlignment="Bottom"
+                                          BorderBrush="{TemplateBinding BorderBrush}"
+                                          RenderTransformOrigin=".5 .5">
+                                        <Border.RenderTransform>
+                                            <ScaleTransform x:Name="borderScaleX" ScaleX="0"/>
+                                        </Border.RenderTransform>
+                                    </Border>
+                                    <Border
+                                       VerticalAlignment="Bottom"
+                                       BorderThickness="0 0 0 .6"
+                                       BorderBrush="{TemplateBinding BorderBrush}"/>
+                                    <!--Error Site-->
+                                    <ItemsControl
+                                        Focusable="False"
+                                        Grid.Row="1"
+                                        ItemsSource="{Binding RelativeSource={RelativeSource TemplatedParent},Path=(Validation.Errors)}">
+                                        <ItemsControl.ItemTemplate>
+                                            <DataTemplate>
+                                                <StackPanel
+                                                     HorizontalAlignment="Right">
+                                                    <TextBlock
+                                                        HorizontalAlignment="Right"
+                                                        FontSize="14"
+                                                        Text="{Binding ErrorContent}"
+                                                        FontFamily="{StaticResource fontLatoRegular}"
+                                                        Foreground="{StaticResource extraRed}"/>
+                                                </StackPanel>
+                                            </DataTemplate>
+                                        </ItemsControl.ItemTemplate>
+                                    </ItemsControl>
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsKeyboardFocused" Value="true">
+                            <Trigger.EnterActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="1"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.EnterActions>
+                            <Trigger.ExitActions>
+                                <BeginStoryboard>
+                                    <Storyboard>
+                                        <DoubleAnimation
+                                            Storyboard.TargetName="borderScaleX"
+                                            Storyboard.TargetProperty="ScaleX"
+                                            To="0"
+                                            Duration="0:0:0:.3"/>
+                                    </Storyboard>
+                                </BeginStoryboard>
+                            </Trigger.ExitActions>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+        <Style.Triggers>
+            <Trigger Property="Validation.HasError" Value="True">
+                <Setter Property="BorderBrush" Value="{StaticResource extraRed}"/>
+            </Trigger>
+        </Style.Triggers>
+    </Style>
+    
+</ResourceDictionary>

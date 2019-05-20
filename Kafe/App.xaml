@@ -4,6 +4,13 @@
              xmlns:local="clr-namespace:Kafe"
              StartupUri="MainWindow.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Style/font.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Kafe.Core.Color;Component/Color/color.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Kafe.Controls;Component/Themes/text.xaml"/>
+                <ResourceDictionary Source="pack://application:,,,/Kafe.Controls;Component/Themes/button.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
     </Application.Resources>
 </Application>
