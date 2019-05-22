@@ -3,7 +3,7 @@ using System.Windows;
 
 namespace Kafe.Controls
 {
-    public class AnimationSlider:BaseAttachProperty<AnimationSlider,SlideAninmation>
+    public class AnimationSlider : BaseAttachProperty<AnimationSlider, SlideAninmation>
     {
         public async override void OnValueUpdated(DependencyObject dependency, object value)
         {

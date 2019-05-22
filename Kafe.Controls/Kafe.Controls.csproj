@@ -77,6 +77,7 @@
     <Compile Include="Factory\ApplicationPage.cs" />
     <Compile Include="Factory\BaseViewModul.cs" />
     <Compile Include="Factory\NumberOnlyAttribute.cs" />
+    <Compile Include="Factory\PCommand.cs" />
     <Compile Include="Factory\RelayCommand.cs" />
     <Compile Include="Factory\ValidateField.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">

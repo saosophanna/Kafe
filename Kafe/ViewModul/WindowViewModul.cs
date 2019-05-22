@@ -5,7 +5,7 @@ using System.Windows.Input;
 
 namespace Kafe
 {
-    public class WindowViewModul:BaseViewModul
+    public class WindowViewModul : BaseViewModul
     {
         private Window mWindow;
 
@@ -18,7 +18,6 @@ namespace Kafe
             get { return state; }
             set { state = value; OnPropertyChanged(); }
         }
-
 
         public Languages Title { get; private set; }
 
@@ -53,14 +52,12 @@ namespace Kafe
             {
                 State = mWindow.WindowState == WindowState.Normal ? "[ ]" : "[]";
             };
-
-
         }
 
         public WindowViewModul()
         {
             LanguagesChange();
-            
+
             IoC.Get<LanguageViewModul>().LanguageChanged += (sender) =>
             {
                 LanguagesChange();
@@ -69,7 +66,7 @@ namespace Kafe
 
         private void LanguagesChange()
         {
-            Title = new Languages("កាហ្វេសូមស្វាគម","Welcome To Kafe");
+            Title = new Languages("កាហ្វេសូមស្វាគមន៏", "Welcome To Kafe");
             OnPropertyChanged(nameof(Title));
         }
     }

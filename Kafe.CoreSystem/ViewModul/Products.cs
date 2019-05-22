@@ -1,19 +1,19 @@
 ﻿using Kafe.Controls;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.ComponentModel.DataAnnotations;
+using System.Runtime.Serialization;
 
 namespace Kafe.CoreSystem
 {
-    public class Products:ValidateField 
+    public class Products : ValidateField, ISerializable
     {
         public static Products Instand { get => new Products(); }
 
         #region Public Property And Private  Field
+
         private string code;
-        
-        [Required(AllowEmptyStrings =false,ErrorMessage ="Code could't be Empty")]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Code could't be Empty")]
         public string Code
         {
             get { return code; }
@@ -25,6 +25,7 @@ namespace Kafe.CoreSystem
         }
 
         private string name;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Code could't be empty")]
         public string Name
         {
@@ -37,7 +38,8 @@ namespace Kafe.CoreSystem
         }
 
         private string type;
-        [Required(AllowEmptyStrings =false,ErrorMessage ="Type cound't be empty")]
+
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Type cound't be empty")]
         public string Type
         {
             get { return type; }
@@ -46,8 +48,8 @@ namespace Kafe.CoreSystem
 
         private int quantity;
 
-        [Required(AllowEmptyStrings =false,ErrorMessage ="Quantity not null allow")]
-        [NumberOnly(typeof(int),ErrorMessage ="Quantity can be only number")]
+        [Required(AllowEmptyStrings = false, ErrorMessage = "Quantity not null allow")]
+        [NumberOnly(typeof(int), ErrorMessage = "Quantity can be only number")]
         public int Quantity
         {
             get { return quantity; }
@@ -55,6 +57,7 @@ namespace Kafe.CoreSystem
         }
 
         private float price;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Price not null allow")]
         [NumberOnly(typeof(float), ErrorMessage = "Price can be only number")]
         public float Price
@@ -64,8 +67,9 @@ namespace Kafe.CoreSystem
         }
 
         private float disPercent;
+
         [Required(AllowEmptyStrings = false, ErrorMessage = "Discount not null allow")]
-        [NumberOnly(typeof(float),maxNumber:100, ErrorMessage = "Discount can be only number")]
+        [NumberOnly(typeof(float), maxNumber: 100, ErrorMessage = "Discount can be only number")]
         public float DisPercent
         {
             get { return disPercent; }
@@ -84,31 +88,34 @@ namespace Kafe.CoreSystem
             set { description = value; ValidateModul(this, value); }
         }
 
-        public float DisPrice { get=>(float)Math.Round(Price-(Price*DisPercent/100),2); set=>OnPropertyChanged(); }
+        public float DisPrice { get => (float)Math.Round(Price - (Price * DisPercent / 100), 2); set => OnPropertyChanged(); }
 
         private bool isShow;
 
         public bool IsShow
         {
             get { return isShow; }
-            set { isShow = value;OnPropertyChanged(); }
+            set { isShow = value; OnPropertyChanged(); }
         }
 
         public bool IsDiscount { get => DisPercent == 0; }
 
-        #endregion
-        
-        #region Label
-        public Languages LabelCode { get; set; }
-
-        public Languages LabelType { get; set; }
-
-        public Languages LabelDiscription { get; set; }
-        #endregion
+        #endregion Public Property And Private  Field
 
         #region Constructor
 
-        public Products(string code, string name, string type, int quantity, float price, float disPercent, string description):this()
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue(nameof(Code), Code);
+            info.AddValue(nameof(Name), Name);
+            info.AddValue(nameof(Type), Type);
+            info.AddValue(nameof(Quantity), Quantity);
+            info.AddValue(nameof(Price), Price);
+            info.AddValue(nameof(DisPercent), DisPercent);
+            info.AddValue(nameof(Description), Description);
+        }
+
+        public Products(string code, string name, string type, int quantity, float price, float disPercent, string description) : this()
         {
             Code = code;
             Name = name;
@@ -129,22 +136,19 @@ namespace Kafe.CoreSystem
             DisPercent = 10;
             Description = "The most popular in the week";
             IsShow = true;
-            ChangLanguage();
-
-            IoC.Get<LanguageViewModul>().LanguageChanged += (sender) => ChangLanguage();
-
-            OnPropertyChanged();
         }
 
-        #endregion
-
-        #region Event
-        private void ChangLanguage()
+        public Products(SerializationInfo info, StreamingContext context)
         {
-            LabelCode = new Languages("កូដ", "Code");
-            LabelType = new Languages("ប្រភេទ", "Type");
-            LabelDiscription = new Languages("ពត័មាន", "Description");
+            Code = (string)info.GetValue(nameof(Code), typeof(string));
+            Name = (string)info.GetValue(nameof(Name), typeof(string));
+            Type = (string)info.GetValue(nameof(Type), typeof(string));
+            Quantity = (int)info.GetValue(nameof(Quantity), typeof(string));
+            Price = (float)info.GetValue(nameof(Price), typeof(string));
+            DisPercent = (float)info.GetValue(nameof(DisPercent), typeof(string));
+            Description = (string)info.GetValue(nameof(Description), typeof(string));
         }
-        #endregion
+
+        #endregion Constructor
     }
 }

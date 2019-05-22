@@ -6,7 +6,7 @@ using System.Windows.Markup;
 namespace Kafe.Controls
 {
     public abstract class BaseValueConvertor<Chile> : MarkupExtension, IValueConverter where
-        Chile:BaseValueConvertor<Chile>,new()
+        Chile : BaseValueConvertor<Chile>, new()
     {
         public abstract object Convert(object value, Type targetType, object parameter, CultureInfo culture);
 

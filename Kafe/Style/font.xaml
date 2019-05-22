@@ -3,4 +3,5 @@
                     xmlns:local="clr-namespace:Kafe">
     <FontFamily x:Key="fontLatoThin">pack://application:,,,/Kafe.Core.Color;Component/Font/#Lato Thin</FontFamily>
     <FontFamily x:Key="fontLatoRegular">pack://application:,,,/Kafe.Core.Color;Component/Font/#Lato Regular</FontFamily>
+    <FontFamily x:Key="fontAwesome">pack://application:,,,/Kafe.Core.Color;Component/Font/#FontAwesome</FontFamily>
 </ResourceDictionary>

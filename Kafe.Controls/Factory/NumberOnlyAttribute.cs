@@ -3,13 +3,13 @@ using System.ComponentModel.DataAnnotations;
 
 namespace Kafe.Controls
 {
-    public class NumberOnlyAttribute:ValidationAttribute
+    public class NumberOnlyAttribute : ValidationAttribute
     {
         private readonly Type typeOfNumber;
 
         private readonly int maxNumber;
 
-        public NumberOnlyAttribute(Type type,int maxNumber = int.MaxValue)
+        public NumberOnlyAttribute(Type type, int maxNumber = int.MaxValue)
         {
             typeOfNumber = type;
             this.maxNumber = maxNumber;
@@ -28,7 +28,7 @@ namespace Kafe.Controls
                 return float.TryParse(value.ToString(), out float numberFloat);
             if (typeOfNumber == typeof(double))
                 return double.TryParse(value.ToString(), out double numberDouble);
-            
+
             return false;
         }
     }

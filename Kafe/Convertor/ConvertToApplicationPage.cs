@@ -12,8 +12,10 @@ namespace Kafe
             {
                 case ApplicationPage.LogIn:
                     return new Menu();
+
                 case ApplicationPage.Menu:
                     return new Menu();
+
                 default:
                     return null;
             }

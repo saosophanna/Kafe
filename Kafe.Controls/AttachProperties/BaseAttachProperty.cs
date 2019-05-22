@@ -2,8 +2,8 @@
 
 namespace Kafe.Controls
 {
-    public class BaseAttachProperty<Child,Property>:FrameworkElement where
-        Child:BaseAttachProperty<Child,Property>,new()
+    public class BaseAttachProperty<Child, Property> : FrameworkElement where
+        Child : BaseAttachProperty<Child, Property>, new()
     {
         public static void SetValue(DependencyObject dependency, Property value) => dependency.SetValue(ValueProperty, value);
 
@@ -15,7 +15,7 @@ namespace Kafe.Controls
             DependencyProperty.RegisterAttached("Value",
                 typeof(Property), typeof(BaseAttachProperty<Child, Property>),
                 new UIPropertyMetadata(default(Property),
-                    OnValueChange,OnValueUpdate,true));
+                    OnValueChange, OnValueUpdate, true));
 
         private static object OnValueUpdate(DependencyObject d, object baseValue)
         {
@@ -23,7 +23,7 @@ namespace Kafe.Controls
                 return baseValue;
 
             Instand.OnValueUpdated(framework, baseValue);
-            
+
             return baseValue;
         }
 
@@ -34,8 +34,12 @@ namespace Kafe.Controls
             Instand.OnValueChanged(framework, e);
         }
 
-        public virtual void OnValueChanged(DependencyObject dependency, DependencyPropertyChangedEventArgs value) { }
+        public virtual void OnValueChanged(DependencyObject dependency, DependencyPropertyChangedEventArgs value)
+        {
+        }
 
-        public virtual void OnValueUpdated(DependencyObject dependency, object value) { }
+        public virtual void OnValueUpdated(DependencyObject dependency, object value)
+        {
+        }
     }
 }

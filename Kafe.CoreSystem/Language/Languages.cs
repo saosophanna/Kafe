@@ -1,13 +1,13 @@
 ﻿using Kafe.Controls;
+using System.Runtime.Serialization;
 
 namespace Kafe.CoreSystem
 {
-    public class Languages:BaseViewModul
+    public class Languages : BaseViewModul, ISerializable
     {
-
         public TranslateTo TranslateTo { get => IoC.Get<LanguageViewModul>().Translate; }
 
-        public static TranslateTo[] LoadLanguage { get => new TranslateTo[] {TranslateTo.Khmer,TranslateTo.English }; }
+        public static TranslateTo[] LoadLanguage { get => new TranslateTo[] { TranslateTo.Khmer, TranslateTo.English }; }
 
         private string khmer;
 
@@ -33,8 +33,10 @@ namespace Kafe.CoreSystem
                 {
                     case TranslateTo.Khmer:
                         return Khmer;
+
                     case TranslateTo.English:
                         return English;
+
                     default:
                         return string.Empty;
                 }
@@ -47,6 +49,11 @@ namespace Kafe.CoreSystem
             English = english;
         }
 
-
+        public void GetObjectData(SerializationInfo info, StreamingContext context)
+        {
+            info.AddValue(nameof(TranslateTo), TranslateTo);
+            info.AddValue(nameof(Khmer), Khmer);
+            info.AddValue(nameof(English), English);
+        }
     }
 }

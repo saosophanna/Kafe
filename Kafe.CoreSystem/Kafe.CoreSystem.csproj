@@ -64,10 +64,15 @@
     <Compile Include="Language\TranslateTo.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ViewModul\ApplicationViewModul.cs" />
+    <Compile Include="ViewModul\CovertoToProducts.cs" />
     <Compile Include="ViewModul\LanguageViewModul.cs" />
     <Compile Include="ViewModul\MenuViewModul.cs" />
+    <Compile Include="ViewModul\OrderDetail.cs" />
+    <Compile Include="ViewModul\Person.cs" />
+    <Compile Include="ViewModul\ProductDesign.cs" />
     <Compile Include="ViewModul\ProductInfoViewModul.cs" />
     <Compile Include="ViewModul\Products.cs" />
+    <Compile Include="ViewModul\SaleViewModul.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

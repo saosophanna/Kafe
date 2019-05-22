@@ -7,14 +7,14 @@ namespace Kafe.Controls
     /// Follow steps 1a or 1b and then 2 to use this custom control in a XAML file.
     ///
     /// Step 1a) Using this custom control in a XAML file that exists in the current project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
+    /// Add this XmlNamespace attribute to the root element of the markup file where it is
     /// to be used:
     ///
     ///     xmlns:MyNamespace="clr-namespace:Kafe.Controls.UserControls"
     ///
     ///
     /// Step 1b) Using this custom control in a XAML file that exists in a different project.
-    /// Add this XmlNamespace attribute to the root element of the markup file where it is 
+    /// Add this XmlNamespace attribute to the root element of the markup file where it is
     /// to be used:
     ///
     ///     xmlns:MyNamespace="clr-namespace:Kafe.Controls.UserControls;assembly=Kafe.Controls.UserControls"
@@ -52,5 +52,21 @@ namespace Kafe.Controls
         public static void SetComment(DependencyObject dependency, string value) => dependency.SetValue(CommentProperty, value);
 
         public static string GetComment(DependencyObject dependency) => (string)dependency.GetValue(CommentProperty);
+
+        public readonly static DependencyProperty LabelCollapedProperty =
+            DependencyProperty.RegisterAttached("LabelCollaped", typeof(bool), typeof(TextBoxDesign),
+                new FrameworkPropertyMetadata(default(bool), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetLabelCollaped(DependencyObject dependency, bool value) => dependency.SetValue(LabelCollapedProperty, value);
+
+        public static bool GetLabelCollaped(DependencyObject dependency) => (bool)dependency.GetValue(LabelCollapedProperty);
+
+        public readonly static DependencyProperty LabelWidthProperty =
+            DependencyProperty.RegisterAttached("LabelWidth", typeof(double), typeof(TextBoxDesign),
+                new FrameworkPropertyMetadata(default(double), FrameworkPropertyMetadataOptions.Inherits));
+
+        public static void SetLabelWidth(DependencyObject dependency, double value) => dependency.SetValue(LabelWidthProperty, value);
+
+        public static double GetLabelWidth(DependencyObject dependency) => (double)dependency.GetValue(LabelWidthProperty);
     }
 }

@@ -1,15 +1,14 @@
 ﻿using Kafe.Controls;
 using System;
 using System.Globalization;
-using System.Windows;
 
-namespace Kafe.Convertor
+namespace Kafe
 {
-    public class ConvertBooleanToVisibility : BaseValueConvertor<ConvertBooleanToVisibility>
+    public class ConvertBooleanToSlideToTop : BaseValueConvertor<ConvertBooleanToSlideToTop>
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return (bool)value ? Visibility.Visible : Visibility.Collapsed;
+            return (bool)value ? SlideAninmation.FromTop : SlideAninmation.ToTop;
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

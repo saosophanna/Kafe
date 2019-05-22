@@ -1,5 +1,6 @@
 ﻿using System.Windows;
 using System.Windows.Controls;
+
 namespace Kafe.Controls
 {
     public class PasswordAttach
@@ -9,7 +10,7 @@ namespace Kafe.Controls
         public static bool GetHasPassword(DependencyObject dependency) => (bool)dependency.GetValue(HasPasswordProperty);
 
         public static readonly DependencyProperty HasPasswordProperty =
-            DependencyProperty.RegisterAttached("HasPassword", typeof(bool), typeof(PasswordAttach), new UIPropertyMetadata(default(bool),OnValueChanged));
+            DependencyProperty.RegisterAttached("HasPassword", typeof(bool), typeof(PasswordAttach), new UIPropertyMetadata(default(bool), OnValueChanged));
 
         private static void OnValueChanged(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
@@ -17,7 +18,7 @@ namespace Kafe.Controls
                 return;
             if (!(bool)e.NewValue)
                 return;
-            void Onload(object sender,RoutedEventArgs ev)
+            void Onload(object sender, RoutedEventArgs ev)
             {
                 password.Loaded -= Onload;
                 password.PasswordChanged += Password_PasswordChanged;
@@ -26,7 +27,7 @@ namespace Kafe.Controls
         }
 
         private static void Password_PasswordChanged(object sender, RoutedEventArgs e)
-       {
+        {
             var password = sender as PasswordBox;
             SetHasPassword(password, password.SecurePassword.Length > 0);
         }

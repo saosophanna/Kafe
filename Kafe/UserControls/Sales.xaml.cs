@@ -1,4 +1,5 @@
-﻿using System.Windows.Controls;
+﻿using Kafe.CoreSystem;
+using System.Windows.Controls;
 
 namespace Kafe
 {
@@ -10,6 +11,7 @@ namespace Kafe
         public Sales()
         {
             InitializeComponent();
+            DataContext = new SaleViewModul();
         }
     }
 }

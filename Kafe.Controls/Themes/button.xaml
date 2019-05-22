@@ -2,10 +2,10 @@
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                     xmlns:local="clr-namespace:Kafe.Controls">
     <Style TargetType="{x:Type local:SButton}" x:Key="baseButtonStyle">
-        <Setter Property="CornerRadius" Value="0"/>
-        <Setter Property="Background" Value="{StaticResource extraWhite}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="Background" Value="{StaticResource extraWhite}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SButton}">
@@ -21,24 +21,24 @@
                             SnapsToDevicePixels="False"
                             FontSize="{TemplateBinding FontSize}"
                             FontFamily="{TemplateBinding FontFamily}"
-                            FontWeight="{TemplateBinding FontWeight}"/>
+                            FontWeight="{TemplateBinding FontWeight}" />
                     </Border>
                 </ControlTemplate>
             </Setter.Value>
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{StaticResource softWhite}"/>
+                <Setter Property="Background" Value="{StaticResource softWhite}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style TargetType="{x:Type local:SButton}" x:Key="baseButtonFadeStyle">
-        <Setter Property="CornerRadius" Value="0"/>
-        <Setter Property="FontSize" Value="18"/>
-        <Setter Property="Background" Value="{StaticResource extraWhite}"/>
-        <Setter Property="BorderThickness" Value="0"/>
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
+        <Setter Property="CornerRadius" Value="0" />
+        <Setter Property="FontSize" Value="18" />
+        <Setter Property="Background" Value="{StaticResource extraWhite}" />
+        <Setter Property="BorderThickness" Value="0" />
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type local:SButton}">
@@ -57,7 +57,7 @@
                             SnapsToDevicePixels="False"
                             FontSize="{TemplateBinding FontSize}"
                             FontFamily="{TemplateBinding FontFamily}"
-                            FontWeight="{TemplateBinding FontWeight}"/>
+                            FontWeight="{TemplateBinding FontWeight}" />
                         </Viewbox>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -71,7 +71,7 @@
                                             To="-5"
                                             Duration="0:0:0:0.1"
                                             DecelerationRatio=".9"
-                                            AutoReverse="True"/>
+                                            AutoReverse="True" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -82,7 +82,7 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{StaticResource softWhite}"/>
+                <Setter Property="Background" Value="{StaticResource softWhite}" />
             </Trigger>
         </Style.Triggers>
     </Style>
@@ -90,26 +90,25 @@
     <Style TargetType="{x:Type local:SButton}" BasedOn="{StaticResource baseButtonFadeStyle}" x:Key="windowCloseButton">
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="True">
-                <Setter Property="Background" Value="{StaticResource extraRed}"/>
+                <Setter Property="Background" Value="{StaticResource extraRed}" />
             </Trigger>
         </Style.Triggers>
     </Style>
 
     <Style TargetType="{x:Type local:SButton}" BasedOn="{StaticResource baseButtonStyle}" x:Key="blueSkyButton">
-        <Setter Property="Background" Value="{StaticResource softBlueSky}"/>
+        <Setter Property="Background" Value="{StaticResource softBlueSky}" />
         <Style.Triggers>
             <Trigger Property="IsMouseOver" Value="true">
-                <Setter Property="Background" Value="{StaticResource deepBlueSky}"/>
+                <Setter Property="Background" Value="{StaticResource deepBlueSky}" />
             </Trigger>
         </Style.Triggers>
     </Style>
-    
-    
+
     <ControlTemplate TargetType="{x:Type ToggleButton}" x:Key="comboBoxToggleButton">
         <Border
             Background="{TemplateBinding Background}"
             BorderThickness="{TemplateBinding BorderThickness}"
-            BorderBrush="{TemplateBinding BorderBrush}">            
+            BorderBrush="{TemplateBinding BorderBrush}">
         </Border>
     </ControlTemplate>
 
@@ -117,15 +116,15 @@
         <Border>
             <ScrollViewer
                 x:Name="PART_ContentHost"
-                SnapsToDevicePixels="False"/>
+                SnapsToDevicePixels="False" />
         </Border>
     </ControlTemplate>
-    
+
     <!--Combobox -->
 
     <Style TargetType="{x:Type ComboBox}">
-        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True"/>
-        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="WindowChrome.IsHitTestVisibleInChrome" Value="True" />
+        <Setter Property="BorderThickness" Value="0" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ComboBox}">
@@ -137,20 +136,20 @@
                             ContentTemplate="{TemplateBinding SelectionBoxItemTemplate}"
                             ContentTemplateSelector="{TemplateBinding ItemTemplateSelector}"
                             HorizontalAlignment="Center"
-                            VerticalAlignment="Center"/>
+                            VerticalAlignment="Center" />
                         <ToggleButton
                             Background="Transparent"
                             x:Name="ToggleButton"
                             Template="{StaticResource comboBoxToggleButton}"
                             IsChecked="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsDropDownOpen}"
                             ClickMode="Press"
-                            Focusable="False"/>
+                            Focusable="False" />
                         <TextBox
                             x:Name="PART_EditableTextBox"
                             Template="{StaticResource comboBoxTextbox}"
                             Background="Transparent"
                             Visibility="Hidden"
-                            IsReadOnly="{TemplateBinding IsReadOnly}"/>
+                            IsReadOnly="{TemplateBinding IsReadOnly}" />
                         <Popup
                             x:Name="PART_Popup"
                             IsOpen="{TemplateBinding IsDropDownOpen}"
@@ -163,7 +162,7 @@
                                     <ScrollViewer>
                                         <StackPanel
                                             IsItemsHost="True"
-                                            KeyboardNavigation.DirectionalNavigation="Contained"/>
+                                            KeyboardNavigation.DirectionalNavigation="Contained" />
                                     </ScrollViewer>
                                 </Border>
                             </Grid>
@@ -181,8 +180,8 @@
                     <Grid
                             KeyboardNavigation.TabNavigation="Local">
                         <Grid.RowDefinitions>
-                            <RowDefinition Height="60"/>
-                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="60" />
+                            <RowDefinition Height="*" />
                         </Grid.RowDefinitions>
                         <Border
                                 Panel.ZIndex="1"
@@ -190,10 +189,9 @@
                             <TabPanel
                                     IsItemsHost="True"
                                     KeyboardNavigation.TabIndex="1"
-                                    Background="Transparent"/>
+                                    Background="Transparent" />
                         </Border>
                         <Border
-                                Background="{StaticResource extraWhite}"
                                 x:Name="Border"
                                 Grid.Row="1"
                                 KeyboardNavigation.TabNavigation="Local"
@@ -203,14 +201,14 @@
                                 <Style TargetType="{x:Type Border}">
                                     <Style.Triggers>
                                         <DataTrigger Binding="{Binding RelativeSource={RelativeSource TemplatedParent},Path=IsFocused}" Value="true">
-                                            <Setter Property="Visibility" Value="Collapsed"/>
+                                            <Setter Property="Visibility" Value="Collapsed" />
                                         </DataTrigger>
                                     </Style.Triggers>
                                 </Style>
                             </Border.Style>
                             <ContentPresenter
                                     x:Name="PART_SelectedContentHost"
-                                    ContentSource="SelectedContent"/>
+                                    ContentSource="SelectedContent" />
                         </Border>
                     </Grid>
                 </ControlTemplate>
@@ -232,8 +230,7 @@
                             <ContentPresenter
                                     x:Name="ContentSite"
                                     ContentSource="Header"
-                                    RecognizesAccessKey="True"
-                                    />
+                                    RecognizesAccessKey="True" />
                         </Viewbox>
                     </Border>
                     <ControlTemplate.Triggers>
@@ -246,7 +243,7 @@
                                                 Storyboard.TargetProperty="Margin"
                                                 To="-5"
                                                 Duration="0:0:0:.2"
-                                                DecelerationRatio=".9"/>
+                                                DecelerationRatio=".9" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -258,7 +255,7 @@
                                                 Storyboard.TargetProperty="Margin"
                                                 To="5"
                                                 Duration="0:0:0:.2"
-                                                DecelerationRatio=".9"/>
+                                                DecelerationRatio=".9" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
@@ -269,15 +266,15 @@
         </Setter>
         <Style.Triggers>
             <Trigger Property="IsSelected" Value="True">
-                <Setter Property="Foreground" Value="CadetBlue"/>
+                <Setter Property="Foreground" Value="CadetBlue" />
             </Trigger>
         </Style.Triggers>
     </Style>
-    
+
     <!--Toggle Button-->
 
     <Style TargetType="{x:Type ToggleButton}">
-        <Setter Property="Background" Value="{StaticResource extraWhite}"/>
+        <Setter Property="Background" Value="{StaticResource extraWhite}" />
         <Setter Property="Template">
             <Setter.Value>
                 <ControlTemplate TargetType="{x:Type ToggleButton}">
@@ -290,31 +287,31 @@
                             CornerRadius="10"
                             Background="{TemplateBinding Background}">
                             <Border.Effect>
-                                <DropShadowEffect Opacity=".15" BlurRadius="1"/>
+                                <DropShadowEffect Opacity=".15" BlurRadius="1" />
                             </Border.Effect>
                         </Border>
                         <!--Slider Button-->
                         <Grid
                             Background="{TemplateBinding Background}">
                             <Grid.OpacityMask>
-                                <VisualBrush Visual="{Binding ElementName=borderMask}"/>
+                                <VisualBrush Visual="{Binding ElementName=borderMask}" />
                             </Grid.OpacityMask>
                             <Grid>
                                 <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="*"/>
-                                    <ColumnDefinition Width="*"/>
+                                    <ColumnDefinition Width="*" />
+                                    <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <!--On Text-->
                                 <TextBlock
                                    Text="On"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center" />
                                 <!--OFF Text-->
                                 <TextBlock
                                    Grid.Column="1"
                                    Text="OFF"
                                    HorizontalAlignment="Center"
-                                   VerticalAlignment="Center"/>
+                                   VerticalAlignment="Center" />
                             </Grid>
                             <!--boder animation-->
                             <Border
@@ -322,16 +319,14 @@
                                 x:Name="borderAnimation"
                                 local:AnimationSlider.Value="None">
                                 <Border.Background>
-                                    <SolidColorBrush x:Name="borderColor" Color="{StaticResource redRGB}"/>
+                                    <SolidColorBrush x:Name="borderColor" Color="{StaticResource redRGB}" />
                                 </Border.Background>
                             </Border>
                         </Grid>
-
-                        
                     </Grid>
                     <ControlTemplate.Triggers>
                         <Trigger Property="IsChecked" Value="true">
-                            <Setter Property="local:AnimationSlider.Value" TargetName="borderAnimation" Value="LetfToRight"/>
+                            <Setter Property="local:AnimationSlider.Value" TargetName="borderAnimation" Value="LetfToRight" />
                             <Trigger.EnterActions>
                                 <BeginStoryboard>
                                     <Storyboard>
@@ -339,7 +334,7 @@
                                             Storyboard.TargetName="borderColor"
                                             Storyboard.TargetProperty="Color"
                                             To="{StaticResource blueSkyRGB}"
-                                            Duration="0:0:0:.5"/>
+                                            Duration="0:0:0:.5" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.EnterActions>
@@ -350,13 +345,13 @@
                                             Storyboard.TargetName="borderColor"
                                             Storyboard.TargetProperty="Color"
                                             To="{StaticResource redRGB}"
-                                            Duration="0:0:0:.5"/>
+                                            Duration="0:0:0:.5" />
                                     </Storyboard>
                                 </BeginStoryboard>
                             </Trigger.ExitActions>
                         </Trigger>
                         <Trigger Property="IsChecked" Value="false">
-                            <Setter Property="local:AnimationSlider.Value" TargetName="borderAnimation" Value="RightToLetf"/>
+                            <Setter Property="local:AnimationSlider.Value" TargetName="borderAnimation" Value="RightToLetf" />
                         </Trigger>
                     </ControlTemplate.Triggers>
                 </ControlTemplate>
@@ -364,4 +359,66 @@
         </Setter>
     </Style>
 
+    <!--RadioButton-->
+    <Style TargetType="{x:Type RadioButton}">
+        <Setter Property="OverridesDefaultStyle" Value="True" />
+        <Setter Property="SnapsToDevicePixels" Value="True" />
+
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="{x:Type RadioButton}">
+                    <BulletDecorator
+                        Background="Transparent">
+                        <BulletDecorator.Bullet>
+                            <Grid
+                                Width="20"
+                                Height="20"
+                                Margin="3">
+                                <Ellipse
+                                      x:Name="border"
+                                      Stroke="{StaticResource extraBlack}"
+                                      StrokeThickness="1" />
+                                <Ellipse
+                                      x:Name="inside"
+                                      Margin="3"
+                                      Stroke="Red"
+                                      Fill="Red" />
+                            </Grid>
+                        </BulletDecorator.Bullet>
+                        <VisualStateManager.VisualStateGroups>
+                            <VisualStateGroup x:Name="CheckStates">
+                                <VisualState x:Name="Checked">
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                           Storyboard.TargetProperty="Margin"
+                                           Storyboard.TargetName="inside"
+                                           To="3"
+                                           Duration="0:0:0:0.2"
+                                           DecelerationRatio=".9" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Unchecked">
+                                    <Storyboard>
+                                        <ThicknessAnimation
+                                           Storyboard.TargetProperty="Margin"
+                                           Storyboard.TargetName="inside"
+                                           To="13"
+                                           Duration="0:0:0:0.2"
+                                           DecelerationRatio=".9" />
+                                    </Storyboard>
+                                </VisualState>
+                                <VisualState x:Name="Indeterminate" />
+                            </VisualStateGroup>
+                        </VisualStateManager.VisualStateGroups>
+                        <TextBlock
+                             Foreground="{StaticResource extraBlack}"
+                             Text="{TemplateBinding Content}"
+                             FontFamily="{TemplateBinding FontFamily}"
+                             HorizontalAlignment="Center"
+                             VerticalAlignment="Center" />
+                    </BulletDecorator>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
 </ResourceDictionary>

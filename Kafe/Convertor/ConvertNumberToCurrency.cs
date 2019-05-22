@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Kafe.Controls;
+using System;
 using System.Globalization;
-using Kafe.Controls;
+
 namespace Kafe
 {
     public class ConvertNumberToCurrency : BaseValueConvertor<ConvertNumberToCurrency>

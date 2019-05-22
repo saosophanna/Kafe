@@ -9,7 +9,7 @@
         xmlns:kc="clr-namespace:Kafe.Controls;assembly=Kafe.Controls"
         xmlns:kcs="clr-namespace:Kafe.CoreSystem;assembly=Kafe.CoreSystem"
         WindowStyle="None"
-        Title="MainWindow" Height="550" Width="800"
+        Title="MainWindow" Height="550" Width="950"
         d:DataContext="{x:Static local:WindowViewModul.Instand}">
     <Window.Resources>
         <Style TargetType="{x:Type local:MainWindow}">
@@ -27,7 +27,7 @@
                                     <Border.Effect>
                                         <DropShadowEffect
                                             BlurRadius="16"
-                                            Opacity=".2"/>
+                                            Opacity=".2" />
                                     </Border.Effect>
                                 </Border>
                                 <Border
@@ -43,20 +43,20 @@
                                 <!--Window-->
                                 <Grid
                                     Margin="7"
-                                    Background="{StaticResource extraWhite}">
+                                    Background="Transparent">
                                     <Grid.OpacityMask>
-                                        <VisualBrush Visual="{Binding ElementName=maskBlack}"/>
+                                        <VisualBrush Visual="{Binding ElementName=maskBlack}" />
                                     </Grid.OpacityMask>
                                     <Grid.RowDefinitions>
-                                        <RowDefinition Height="35"/>
-                                        <RowDefinition Height="*"/>
+                                        <RowDefinition Height="35" />
+                                        <RowDefinition Height="*" />
                                     </Grid.RowDefinitions>
                                     <!--Title Site-->
                                     <Grid>
                                         <Grid.ColumnDefinitions>
-                                            <ColumnDefinition Width="200"/>
-                                            <ColumnDefinition Width="*"/>
-                                            <ColumnDefinition Width="200"/>
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="200" />
                                         </Grid.ColumnDefinitions>
                                         <TextBlock
                                             Grid.Column="1"
@@ -64,15 +64,15 @@
                                             HorizontalAlignment="Center"
                                             VerticalAlignment="Center"
                                             FontSize="18"
-                                            FontFamily="{StaticResource fontLatoThin}"/>
+                                            FontFamily="{StaticResource fontLatoThin}" />
                                         <!--Button Window-->
                                         <Grid
                                             Grid.Column="2">
                                             <Grid.ColumnDefinitions>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
-                                                <ColumnDefinition Width="*"/>
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
+                                                <ColumnDefinition Width="*" />
                                             </Grid.ColumnDefinitions>
                                             <ComboBox
                                                 SelectedItem="{Binding SelectedTranslated}"
@@ -83,25 +83,25 @@
                                                 Grid.Column="1"
                                                 Content="-"
                                                 Style="{StaticResource baseButtonFadeStyle}"
-                                                FontFamily="{StaticResource fontLatoThin}"/>
+                                                FontFamily="{StaticResource fontLatoThin}" />
                                             <kc:SButton
                                                 Command="{Binding StateCommmand}"
                                                 Grid.Column="2"
                                                 Content="{Binding State}"
                                                 Style="{StaticResource baseButtonFadeStyle}"
-                                                FontFamily="{StaticResource fontLatoThin}"/>
+                                                FontFamily="{StaticResource fontLatoThin}" />
                                             <kc:SButton
                                                 Command="{Binding CloseCommand}"
                                                 Grid.Column="3"
                                                 Content="X"
                                                 Style="{StaticResource windowCloseButton}"
-                                                FontFamily="{StaticResource fontLatoThin}"/>
+                                                FontFamily="{StaticResource fontLatoThin}" />
                                         </Grid>
                                     </Grid>
                                     <!--Content Window Site-->
                                     <Grid
                                         Grid.Row="1">
-                                        <ContentPresenter/>
+                                        <ContentPresenter />
                                     </Grid>
                                 </Grid>
                             </Grid>
@@ -114,13 +114,13 @@
     <WindowChrome.WindowChrome>
         <WindowChrome ResizeBorderThickness="15"
                       CaptionHeight="35"
-                      GlassFrameThickness="0"/>
+                      GlassFrameThickness="0" />
     </WindowChrome.WindowChrome>
     <Grid>
         <Frame
             DataContext="{Binding Application.CurrentPage ,
             Source={x:Static local:ShareApplication.Instand},
             Converter={local:ConvertToApplicationPage}}"
-            Content="{Binding}"/>
+            Content="{Binding}" />
     </Grid>
 </Window>

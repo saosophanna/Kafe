@@ -10,7 +10,6 @@ namespace Kafe.Controls
             var number = (int)value;
 
             return number == 0 ? false : true;
-
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

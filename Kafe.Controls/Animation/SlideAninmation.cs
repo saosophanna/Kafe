@@ -7,6 +7,10 @@
         FadeOut,
         FadeIn,
         LetfToRight,
-        RightToLetf
+        RightToLetf,
+        FromTop,
+        ToTop,
+        FromHiddenLeftToRight,
+        ToHiddenLeft
     }
 }

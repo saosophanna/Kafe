@@ -7,7 +7,7 @@ namespace Kafe
     {
         public override object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return "-"+value + "%";
+            return "-" + value + "%";
         }
 
         public override object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

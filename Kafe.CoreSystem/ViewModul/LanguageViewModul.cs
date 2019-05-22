@@ -5,12 +5,11 @@ namespace Kafe.CoreSystem
 {
     public class LanguageViewModul : BaseViewModul
     {
-
         public event Action<TranslateTo> LanguageChanged = (sender) => { };
 
         public static LanguageViewModul Instand { get => new LanguageViewModul(); }
 
-        private TranslateTo translate= TranslateTo.Khmer;
+        private TranslateTo translate = TranslateTo.Khmer;
 
         public TranslateTo Translate
         {
@@ -24,7 +23,5 @@ namespace Kafe.CoreSystem
                 OnPropertyChanged();
             }
         }
-
-
     }
 }

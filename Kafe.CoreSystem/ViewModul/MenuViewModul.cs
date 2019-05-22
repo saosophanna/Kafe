@@ -2,7 +2,7 @@
 
 namespace Kafe.CoreSystem
 {
-    public class MenuViewModul:BaseViewModul
+    public class MenuViewModul : BaseViewModul
     {
         public static MenuViewModul Instand { get => new MenuViewModul(); }
 
@@ -24,10 +24,10 @@ namespace Kafe.CoreSystem
 
             ChangeLanguage();
 
-            IoC.Get<LanguageViewModul>().LanguageChanged+=(sender)=>
-            {
-                ChangeLanguage();
-            };
+            IoC.Get<LanguageViewModul>().LanguageChanged += (sender) =>
+              {
+                  ChangeLanguage();
+              };
         }
 
         private void ChangeLanguage()

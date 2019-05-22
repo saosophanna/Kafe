@@ -71,6 +71,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Convertor\ConvertBooleanToLetfHiddenAnimation.cs" />
+    <Compile Include="Convertor\ConvertBooleanToSlideToTop.cs" />
+    <Compile Include="Convertor\ConvertBooleanToSoftblueBackground.cs" />
     <Compile Include="Convertor\ConvertBooleanToVisibility.cs" />
     <Compile Include="Convertor\ConvertNumberToCurrency.cs" />
     <Compile Include="Convertor\ConvertNumberToPercent.cs" />
@@ -80,6 +83,9 @@
     </Compile>
     <Compile Include="UserControls\ProductCustom.xaml.cs">
       <DependentUpon>ProductCustom.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\ProductDesignTemplate.xaml.cs">
+      <DependentUpon>ProductDesignTemplate.xaml</DependentUpon>
     </Compile>
     <Compile Include="UserControls\ProductTemplated.xaml.cs">
       <DependentUpon>ProductTemplated.xaml</DependentUpon>
@@ -110,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="UserControls\ProductCustom.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="UserControls\ProductDesignTemplate.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -168,6 +178,9 @@
   <ItemGroup>
     <Resource Include="Image\espressoo.jpg" />
     <Resource Include="Image\myGirl.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Image\iced-coffee.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.4.2.1\build\Fody.targets" Condition="Exists('..\packages\Fody.4.2.1\build\Fody.targets')" />

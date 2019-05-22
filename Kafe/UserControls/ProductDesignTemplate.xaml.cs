@@ -3,11 +3,11 @@
 namespace Kafe
 {
     /// <summary>
-    /// Interaction logic for ProductCustom.xaml
+    /// Interaction logic for ProductDesignTemplate.xaml
     /// </summary>
-    public partial class ProductCustom : UserControl
+    public partial class ProductDesignTemplate : UserControl
     {
-        public ProductCustom()
+        public ProductDesignTemplate()
         {
             InitializeComponent();
         }

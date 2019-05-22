@@ -2,11 +2,11 @@
 
 namespace Kafe.CoreSystem
 {
-    public class ProductInfoViewModul:BaseViewModul
+    public class ProductInfoViewModul : BaseViewModul
     {
         public static ProductInfoViewModul Instand { get => new ProductInfoViewModul(); }
 
-        public Products Product { get; set; }
+        public ProductDesign Product { get; set; }
 
         public Languages LabelCode { get; set; }
 
@@ -36,10 +36,9 @@ namespace Kafe.CoreSystem
 
         public Languages CommentInfo { get; set; }
 
-
         public ProductInfoViewModul()
         {
-            Product = new Products();
+            Product = new ProductDesign();
             LanguageChange();
             IoC.Get<LanguageViewModul>().LanguageChanged += (sender) => LanguageChange();
         }
@@ -48,7 +47,7 @@ namespace Kafe.CoreSystem
         {
             LabelCode = new Languages("កូដ", "Code");
             CommentCode = new Languages("បញ្ចូលលេខកូដ", "Enter code");
-            LabelName = new Languages("ឈ្មោះផលិតផល","Product name");
+            LabelName = new Languages("ឈ្មោះផលិតផល", "Product name");
             CommentName = new Languages("ដាក់ឈ្មោះផលិតផល", "Enter product's name");
             LabelType = new Languages("ប្រភេទផលិតផល", "Product Type");
             CommentType = new Languages("បញ្ចូលប្រភេទរបស់ផលិតផល", "Enter product's type");
@@ -60,8 +59,6 @@ namespace Kafe.CoreSystem
             CommentDiscount = new Languages("បញ្ចូលចំនូននៃការបញ្ចុះតម្លៃ", "Enter discount percent");
             LabelInfo = new Languages("ពត័មាន", "Description");
             CommentInfo = new Languages("បញ្ចូលពត័មាន", "Any Decription?");
-        
-
         }
     }
 }

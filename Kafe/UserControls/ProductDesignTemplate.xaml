@@ -1,0 +1,27 @@
+﻿<UserControl x:Class="Kafe.ProductDesignTemplate"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:local="clr-namespace:Kafe"
+             xmlns:kcs="clr-namespace:Kafe.CoreSystem;assembly=Kafe.CoreSystem"
+             xmlns:kc="clr-namespace:Kafe.Controls;assembly=Kafe.Controls"
+             mc:Ignorable="d"
+             d:DesignHeight="250" d:DesignWidth="250"
+             d:DataContext="{x:Static kcs:ProductDesign.Instand}">
+    <Grid>
+        <local:ProductTemplated />
+        <!--Top Ordere-->
+        <Grid
+            VerticalAlignment="Top"
+            kc:AnimationSlider.Value="{Binding IsSelected,Converter={local:ConvertBooleanToSlideToTop}}">
+            <TextBlock
+                Text="Ordered"
+                VerticalAlignment="Center"
+                HorizontalAlignment="Center"
+                FontSize="24"
+                FontFamily="{StaticResource fontLatoRegular}"
+                Foreground="{StaticResource extraRed}" />
+        </Grid>
+    </Grid>
+</UserControl>

@@ -1,8 +1,8 @@
 ﻿<UserControl x:Class="Kafe.ProductCustom"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
-             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
              xmlns:local="clr-namespace:Kafe"
              xmlns:kcs="clr-namespace:Kafe.CoreSystem;assembly=Kafe.CoreSystem"
              mc:Ignorable="d"
@@ -11,71 +11,71 @@
              d:DataContext="{x:Static kcs:ProductInfoViewModul.Instand}">
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width=".5*"/>
-            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width=".5*" />
+            <ColumnDefinition Width="*" />
         </Grid.ColumnDefinitions>
-        <local:ProductTemplated DataContext="{Binding Product}"/>
+        <local:ProductTemplated DataContext="{Binding Product}" />
         <!--Product Information-->
         <Grid
             MaxWidth="550"
             Grid.Column="1"
             Background="{StaticResource extraWhite}">
             <Grid.RowDefinitions>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="2*"/>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
             </Grid.RowDefinitions>
             <kc:TextBoxDesign
                 Label="{Binding LabelCode.Translate}"
                 Comment="{Binding CommentCode.Translate}"
                 Text="{Binding Product.Code}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="1"
                 Label="{Binding LabelName.Translate}"
                 Comment="{Binding CommentName.Translate}"
                 Text="{Binding Product.Name}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="2"
                 Label="{Binding LabelType.Translate}"
                 Comment="{Binding CommentType.Translate}"
                 Text="{Binding Product.Type}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="3"
                 Label="{Binding LabelQuantity.Translate}"
                 Comment="{Binding CommentQuantity.Translate}"
                 Text="{Binding Product.Quantity}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="4"
                 Label="{Binding LabelPrice.Translate}"
                 Text="{Binding Product.Price}"
                 Comment="{Binding CommentPrice.Translate}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="5"
                 Label="{Binding LabelDiscount.Translate}"
                 Comment="{Binding CommentDiscount.Translate}"
                 Text="{Binding Product.DisPercent}"
-                FontSize="18"/>
+                FontSize="18" />
             <kc:TextBoxDesign
                 Grid.Row="6"
                 Label="{Binding LabelInfo.Translate}"
                 Comment="{Binding CommentDiscount.Translate}"
                 Text="{Binding Product.Description}"
-                FontSize="18"/>
+                FontSize="18" />
             <ToggleButton
                 IsChecked="{Binding Product.IsShow}"
                 Grid.Row="7"
-                Width="200"/>
+                Width="200" />
             <StackPanel
                 Grid.Row="8"
                 Orientation="Horizontal"
@@ -85,14 +85,14 @@
                     Width="150"
                     Height="60"
                     Style="{StaticResource blueSkyButton}"
-                    Content="Insert"/>
+                    Content="Insert" />
                 <kc:SButton
                     Margin="20 0 0 0"
                     CornerRadius="10"
                     Width="150"
                     Height="60"
                     Style="{StaticResource blueSkyButton}"
-                    Content="Insert"/>
+                    Content="Insert" />
             </StackPanel>
         </Grid>
     </Grid>
